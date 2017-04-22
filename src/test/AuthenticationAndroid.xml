@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Android">
+    <test name="signIn">
+        <classes>
+            <class name="MobileTests.SignInScreenTest"/>
+            <methods>
+                <include name="signInAndroid"/>
+            </methods>
+        </classes>
+    </test>
+
+    <test name="signInError">
+        <classes>
+            <class name="MobileTests.SignInScreenTest"/>
+            <methods>
+                <include name="signInErrorAndroid"/>
+            </methods>
+        </classes>
+    </test>
+
+    <test name="changePassword">
+        <groups>
+            <run>
+                <include name="changePassword"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="MobileTests.SignInScreenTest"/>
+            <class name="MobileTests.WelcomeScreenTest"/>
+        </classes>
+    </test>
+
+    <test name="changePasswordError">
+        <groups>
+            <run>
+                <include name="changePasswordError"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="MobileTests.SignInScreenTest"/>
+            <class name="MobileTests.WelcomeScreenTest"/>
+        </classes>
+    </test>
+</suite>

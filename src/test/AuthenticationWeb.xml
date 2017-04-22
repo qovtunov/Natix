@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Web">
+    <test name="signIn">
+        <classes>
+            <class name="WebTests.SignInPageTest"/>
+            <methods>
+                <include name="signIn"/>
+            </methods>
+        </classes>
+    </test>
+
+    <test name="signInRefresh">
+        <classes>
+            <class name="WebTests.SignInPageTest"/>
+            <methods>
+                <include name="signInRefresh"/>
+            </methods>
+        </classes>
+    </test>
+
+    <test name="signInRemember">
+        <classes>
+            <class name="WebTests.SignInPageTest"/>
+            <methods>
+                <include name="signInRemember"/>
+            </methods>
+        </classes>
+    </test>
+
+    <test name="signInError">
+        <classes>
+            <class name="WebTests.SignInPageTest"/>
+            <methods>
+                <include name="signInError"/>
+            </methods>
+        </classes>
+    </test>
+
+    <test name="changePassword">
+        <groups>
+            <run>
+                <include name="changePassword"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="WebTests.SignInPageTest"/>
+            <class name="WebTests.WelcomePageTest"/>
+        </classes>
+    </test>
+
+    <test name="changePasswordError">
+        <groups>
+            <run>
+                <include name="changePasswordError"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="WebTests.SignInPageTest"/>
+            <class name="WebTests.WelcomePageTest"/>
+        </classes>
+    </test>
+</suite>
