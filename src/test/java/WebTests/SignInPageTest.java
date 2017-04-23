@@ -5,25 +5,38 @@ import Pages.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class SignInPageTest extends MainTestWeb {
 
     SignInPage signInPage;
     WelcomePage welcomePage;
 
     @Test(groups = {"signuptestweb", "changePassword", "changePasswordError"})
-    public void signIn () throws InterruptedException {
+    public void signIn () throws InterruptedException, IOException {
+        setLogger();
         signInPage = new SignInPage(driver, 1);
-        signInPage.signInInput(driver, getProperty("login"), getProperty("password"));
-        signInPage.clickSignInButton(driver);
+        try {
+            signInPage.signInInput(driver, getProperty("login"), getProperty("password"));
+            signInPage.clickSignInButton(driver);
+            logger.info("Login/Password passed, Sign In procedure in progress...");
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.severe("Sign In procedure failed on entering credentials step!");
+        }
+        Thread.sleep(2000); ///change wait
+
+        Assert.assertFalse(signInPage.emailLogin.getCssValue("animation").contains("shake")&& signInPage.emailLogin.getCssValue("color").equals("rgba(255, 0, 0, 1)"), "Sign In failed during submit step. Reason: wrong credentials. Test failed -");
 
         welcomePage = new WelcomePage(driver, 1);
 
-        Assert.assertTrue(isElementVisible(welcomePage.settingsButton, driver));
+        Assert.assertTrue(isRedirectTo("Welcome", driver), "Sign In failed during submit step. Welcome page is not load. Test failed -");
+        logger.info("Sign In completed. Test PASSED");
     }
 
     @Test(groups = {"signuptestweb"})
     public void signInRefresh() throws InterruptedException {
-        signIn();
+        //signIn();
         driver.navigate().refresh();
 
         Assert.assertTrue(isElementVisible(signInPage.signInButton, driver));
