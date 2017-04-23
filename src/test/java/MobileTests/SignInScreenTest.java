@@ -15,15 +15,23 @@ public class SignInScreenTest extends MainTestMobile {
     @Test(groups = {"androidtest", "changePassword", "changePasswordError"})
     public void signInAndroid() throws InterruptedException {
         signInScreenAndroid = new SignInPage(driver, 0);
-
-        System.out.println("ready to switch");
         switchToWeb(driver);
-        System.out.println("ready to switch");
-        signInScreenAndroid.signInInput(driver, getProperty("login"), getProperty("password"));
-        signInScreenAndroid.clickSignInButton(driver);
+        try {
+            signInScreenAndroid.signInInput(driver, getProperty("login"), getProperty("password"));
+            signInScreenAndroid.clickSignInButton(driver);
+            logger.info("Login/Password passed, Sign In procedure in progress...");
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.severe("Sign In procedure failed on entering credentials step!");
+        }
+
+        Thread.sleep(2000);
+        Assert.assertFalse(signInScreenAndroid.emailLogin.getCssValue("animation").contains("shake")&& signInScreenAndroid.emailLogin.getCssValue("color").equals("rgba(255, 0, 0, 1)"), "Sign In failed during submit step. Reason: wrong credentials. Test failed -");
+
         welcomeScreenAndroid = new WelcomePage(driver, 0);
 
-        Assert.assertTrue(isElementVisible(welcomeScreenAndroid.settingsButton, driver));
+        Assert.assertTrue(isElementVisible(welcomeScreenAndroid.settingsButton, driver), "Sign In failed after submit step. Home screen is not loaded. Test failed - ");
+        logger.info("Sign In completed. Test PASSED");
     }
 
     @Test(groups = {"androidtest"})

@@ -17,7 +17,7 @@ public class MainTestMobile extends MainMethods {
     public static WebDriver driver;
 
 
-    @BeforeTest (groups = {"androidtest", "changePassword", "changePasswordError"})            // я бы переименовал в androidtests так этот бефор для все тестов
+    @BeforeTest (groups = {"androidtest", "changePassword", "changePasswordError"})
     public void setUpAndroid() throws Exception {
         File appDir = new File("src");
         File app = new File(appDir, "natixis.apk");
@@ -32,13 +32,7 @@ public class MainTestMobile extends MainMethods {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
-    @AfterTest(groups = {"androidtest", "changePassword", "changePasswordError"})
-    public void shutDown() throws InterruptedException {
-        Thread.sleep(2000);
-        driver.quit();
-    }
-
-    /*@BeforeTest(groups = {"iostest"})               // тоже самое
+    /*@BeforeTest(groups = {"iostest"})
     public void setUpiOS() throws MalformedURLException, InterruptedException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "iOS");
@@ -51,4 +45,11 @@ public class MainTestMobile extends MainMethods {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         //Thread.sleep(10000);
     }*/
+
+    @AfterTest(groups = {"androidtest", "changePassword", "changePasswordError"})
+    public void tearDown() throws InterruptedException {
+        //Thread.sleep(2000);
+        driver.quit();
+        logger.info("[TEST FINISHED]");
+    }
 }

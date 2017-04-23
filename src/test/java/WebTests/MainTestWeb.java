@@ -23,8 +23,10 @@ public class MainTestWeb extends MainMethods {  // ПЕРЕНЕСТИ В Driver 
     File driverChromeMac = new File(dir, "chromedriverMac");
 
     @BeforeTest(groups = {"signuptestweb", "changePassword", "changePasswordError"})                       // РАЗОБРАТЬСЯ - ЗАПУСК ДЛЯ ВСЕХ ГРУП
-    public void DriverChrome() throws IOException {
-        System.out.println("OS: " + operationSystem);
+    public void setUpDriverChrome() throws IOException {
+        logger.info("[TEST STARTED]");
+        logger.info("OS: "+ operationSystem);
+        //System.out.println("OS: " + operationSystem);
         if (operationSystem.contains("win")){
             System.setProperty("webdriver.chrome.driver", String.valueOf(driverChromeWin));
         }else if (operationSystem.contains("nux") || operationSystem.contains("nix")) {
@@ -43,9 +45,10 @@ public class MainTestWeb extends MainMethods {  // ПЕРЕНЕСТИ В Driver 
     }
 
     @AfterTest(groups = {"signuptestweb", "changePassword", "changePasswordError"})
-    public void shutDown() throws InterruptedException {
-        Thread.sleep(2000);
+    public void tearDown() throws InterruptedException {
+        //Thread.sleep(7000);
         driver.quit();
+        logger.info("[TEST FINISHED]");
     }
 
 
