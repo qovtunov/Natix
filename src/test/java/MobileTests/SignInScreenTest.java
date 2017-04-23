@@ -2,6 +2,7 @@ package MobileTests;
 
 import Pages.SignInPage;
 import Pages.WelcomePage;
+import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -26,7 +27,10 @@ public class SignInScreenTest extends MainTestMobile {
         }
 
         Thread.sleep(2000);
-        Assert.assertFalse(signInScreenAndroid.emailLogin.getCssValue("animation").contains("shake")&& signInScreenAndroid.emailLogin.getCssValue("color").equals("rgba(255, 0, 0, 1)"), "Sign In failed during submit step. Reason: wrong credentials. Test failed -");
+
+        try {
+            Assert.assertFalse(signInScreenAndroid.emailLogin.getCssValue("animation").contains("shake")&& signInScreenAndroid.emailLogin.getCssValue("color").equals("rgba(255, 0, 0, 1)"), "Sign In failed during submit step. Reason: wrong credentials. Test failed -");
+        } catch (NoSuchElementException e) {}
 
         welcomeScreenAndroid = new WelcomePage(driver, 0);
 
