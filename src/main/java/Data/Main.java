@@ -30,8 +30,7 @@ public class Main {
 
         // Read the output
 
-        BufferedReader reader =
-                new BufferedReader(new InputStreamReader(proc.getInputStream()));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 
         String line = "";
         while((line = reader.readLine()) != null) {

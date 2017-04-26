@@ -38,14 +38,11 @@ public class SignInPageTest extends MainTestWeb {
     }
 
     @Test(groups = {"signuptestweb"})
-    public void signInRefresh() throws InterruptedException {
-        //signIn();
+    public void signInRefresh() throws InterruptedException, IOException {
+        signIn();
         driver.navigate().refresh();
-
         Assert.assertTrue(isElementVisible(signInPage.signInButton, driver));
 
-        System.out.println(signInPage.emailLogin.getCssValue("animation"));
-        System.out.println(signInPage.emailLogin.getCssValue("color"));
     }
 
     @Test(groups = {"signuptestweb"})
@@ -71,7 +68,7 @@ public class SignInPageTest extends MainTestWeb {
         signInPage = new SignInPage(driver, 1);
         signInPage.signInInput(driver, getProperty("login") + "m", getProperty("password") + "1");
         signInPage.clickSignInButton(driver);
-        Thread.sleep(2000);
+        Thread.sleep(4000);
 
         //Assert.assertTrue(signInPage.emailLogin.getAttribute("ng-change").contains("hideError")&&signInPage.password.getAttribute("ng-change").contains("hideError"));
         System.out.println(signInPage.emailLogin.getCssValue("animation"));
