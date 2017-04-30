@@ -39,9 +39,9 @@ public class Main {
 
 
 
-        Thread.sleep(10000);
+        /*Thread.sleep(10000);
         System.out.println("fsdffsdfsdfsdf");
-        proc.destroy();
+        proc.destroy();*/
 
 
 
