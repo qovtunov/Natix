@@ -13,7 +13,7 @@ public class SignInPageTest extends MainTestWeb {
     SignInPage signInPage;
     WelcomePage welcomePage;
 
-    @Test(groups = {"signuptestweb", "changePassword", "changePasswordError"})
+    @Test(groups = {"signIn"})
     public void signIn () throws InterruptedException, IOException {
         setLogger();
         signInPage = new SignInPage(driver, 1);
@@ -37,7 +37,7 @@ public class SignInPageTest extends MainTestWeb {
         logger.info("Sign In completed. Test PASSED");
     }
 
-    @Test(groups = {"signuptestweb"})
+    @Test
     public void signInRefresh() throws InterruptedException, IOException {
         signIn();
         driver.navigate().refresh();
@@ -45,7 +45,7 @@ public class SignInPageTest extends MainTestWeb {
 
     }
 
-    @Test(groups = {"signuptestweb"})
+    @Test
     public void signInRemember () throws InterruptedException {
         signInPage = new SignInPage(driver, 1);
         signInPage.signInInput(driver, getProperty("login"), getProperty("password"));
@@ -63,7 +63,7 @@ public class SignInPageTest extends MainTestWeb {
         Assert.assertTrue(isRedirectTo("Welcome", driver));
     }
 
-    @Test(groups = {"signuptestweb"})
+    @Test
     public void signInError () throws InterruptedException {
         signInPage = new SignInPage(driver, 1);
         signInPage.signInInput(driver, getProperty("login") + "m", getProperty("password") + "1");
