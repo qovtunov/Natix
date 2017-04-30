@@ -30,8 +30,7 @@ public class Main {
 
         // Read the output
 
-        BufferedReader reader =
-                new BufferedReader(new InputStreamReader(proc.getInputStream()));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 
         String line = "";
         while((line = reader.readLine()) != null) {
@@ -40,9 +39,9 @@ public class Main {
 
 
 
-        Thread.sleep(10000);
+        /*Thread.sleep(10000);
         System.out.println("fsdffsdfsdfsdf");
-        proc.destroy();
+        proc.destroy();*/
 
 
 

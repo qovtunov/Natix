@@ -24,7 +24,7 @@ public class MainMethods extends UserData {
     public static final Logger logger = Logger.getLogger(MainMethods.class.getName());
     /*
         /Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/jre/lib/logging.properties - global file
-        -Djava.util.logging.config.file=/Users/kovtunov/Dropbox/Learning/IT/Projects/natixisApp/src/log.properties - add to Edit Configuration > VM
+        -Djava.util.logging.config.file=/Users/kovtunov/Dropbox/Learning/IT/Projects/natixisApp/src/main/resources/log.properties - add to Edit Configuration > VM
         System.out.println(System.getProperty("java.util.logging.config.file")); - check local file
         LogManager.getLogManager().readConfiguration(); - read configuration from local file
     */

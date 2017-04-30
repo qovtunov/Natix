@@ -9,6 +9,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -19,6 +20,12 @@ public class MainTestMobile extends MainMethods {
 
     @BeforeTest (groups = {"androidtest", "changePassword", "changePasswordError"})
     public void setUpAndroid() throws Exception {
+        /*try {
+            Appium appium = new Appium();
+            appium.appiumStart();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
         File appDir = new File("src");
         File app = new File(appDir, "natixis.apk");
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -47,9 +54,11 @@ public class MainTestMobile extends MainMethods {
     }*/
 
     @AfterTest(groups = {"androidtest", "changePassword", "changePasswordError"})
-    public void tearDown() throws InterruptedException {
+    public void tearDown() throws InterruptedException, IOException {
         //Thread.sleep(2000);
         driver.quit();
+        /*Appium appium = new Appium();
+        appium.appiumDown();*/
         logger.info("[TEST FINISHED]");
     }
 }
