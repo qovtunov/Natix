@@ -57,6 +57,11 @@ public class MainMethods extends UserData {
         //logger.info("Element is found.");
     }
 
+    public void waitForElementStaleness(WebElement element, WebDriver driver){
+        wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.stalenessOf(element));
+    }
+
     public boolean isElementVisible(WebElement element, WebDriver driver) {
         try {
             waitForElement(element, driver);

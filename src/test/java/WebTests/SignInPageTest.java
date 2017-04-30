@@ -25,11 +25,11 @@ public class SignInPageTest extends MainTestWeb {
             e.printStackTrace();
             logger.severe("Sign In procedure failed on entering credentials step!");
         }
-        Thread.sleep(2000); ///change wait
 
        try {
+           waitForElementStaleness(signInPage.signInButton, driver);
            Assert.assertFalse(signInPage.emailLogin.getCssValue("animation").contains("shake")&& signInPage.emailLogin.getCssValue("color").equals("rgba(255, 0, 0, 1)"), "Sign In failed during submit step. Reason: wrong credentials. Test failed -");
-       } catch (NoSuchElementException e){}
+       } catch (Exception e){}
 
         welcomePage = new WelcomePage(driver, 1);
 

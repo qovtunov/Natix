@@ -3,8 +3,11 @@ package MobileTests;
 import Pages.SignInPage;
 import Pages.WelcomePage;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.stalenessOf;
 
 
 public class SignInScreenTest extends MainTestMobile {
@@ -26,11 +29,10 @@ public class SignInScreenTest extends MainTestMobile {
             logger.severe("Sign In procedure failed on entering credentials step!");
         }
 
-        Thread.sleep(2000);
-
         try {
+            waitForElementStaleness(signInScreenAndroid.signInButton, driver);
             Assert.assertFalse(signInScreenAndroid.emailLogin.getCssValue("animation").contains("shake")&& signInScreenAndroid.emailLogin.getCssValue("color").equals("rgba(255, 0, 0, 1)"), "Sign In failed during submit step. Reason: wrong credentials. Test failed -");
-        } catch (NoSuchElementException e) {}
+        } catch (Exception e) {}
 
         welcomeScreenAndroid = new WelcomePage(driver, 0);
 
