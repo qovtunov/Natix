@@ -22,7 +22,7 @@ public class MainTestWeb extends MainMethods {  // ПЕРЕНЕСТИ В Driver 
     File driverChromeLinux = new File(dir, "chromedriverLinux64");
     File driverChromeMac = new File(dir, "chromedriverMac");
 
-    @BeforeTest(groups = {"signuptestweb", "changePassword", "changePasswordError"})                       // РАЗОБРАТЬСЯ - ЗАПУСК ДЛЯ ВСЕХ ГРУП
+    @BeforeTest(groups = {"signIn"})                       // РАЗОБРАТЬСЯ - ЗАПУСК ДЛЯ ВСЕХ ГРУП
     public void setUpDriverChrome() throws IOException {
         logger.info("[TEST STARTED]");
         logger.info("OS: "+ operationSystem);
@@ -40,8 +40,6 @@ public class MainTestWeb extends MainMethods {  // ПЕРЕНЕСТИ В Driver 
         driver = new ChromeDriver(options);
 
         driver.get(ConfigProperties.getProperty("baseUrl"));
-
-
     }
 
     @AfterTest(groups = {"signuptestweb", "changePassword", "changePasswordError"})

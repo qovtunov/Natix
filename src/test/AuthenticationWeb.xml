@@ -41,6 +41,7 @@
     <test name="changePassword">
         <groups>
             <run>
+                <include name="signIn"/>
                 <include name="changePassword"/>
             </run>
         </groups>
@@ -53,6 +54,7 @@
     <test name="changePasswordError">
         <groups>
             <run>
+                <include name="signIn"/>
                 <include name="changePasswordError"/>
             </run>
         </groups>
