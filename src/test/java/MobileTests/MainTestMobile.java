@@ -59,6 +59,6 @@ public class MainTestMobile extends MainMethods {
         driver.quit();
         /*Appium appium = new Appium();
         appium.appiumDown();*/
-        logger.info("[TEST FINISHED]");
+        logger.info("[TEST FINISHED]" + "\n");
     }
 }

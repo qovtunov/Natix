@@ -56,7 +56,5 @@ public class WelcomePageTest extends MainTestWeb {
         clickElement(welcomePage.playButton, driver);
 
         Assert.assertTrue(isElementVisible(welcomePage.playerFooter, driver));
-        System.out.println("nice!");
     }
-
 }

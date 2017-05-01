@@ -46,7 +46,7 @@ public class MainTestWeb extends MainMethods {  // ПЕРЕНЕСТИ В Driver 
     public void tearDown() throws InterruptedException {
         //Thread.sleep(7000);
         driver.quit();
-        logger.info("[TEST FINISHED]");
+        logger.info("[TEST FINISHED]" + "\n");
     }
 
 

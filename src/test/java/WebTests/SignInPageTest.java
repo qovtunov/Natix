@@ -15,7 +15,6 @@ public class SignInPageTest extends MainTestWeb {
 
     @Test(groups = {"signIn"})
     public void signIn () throws InterruptedException, IOException {
-        setLogger();
         signInPage = new SignInPage(driver, 1);
         try {
             signInPage.signInInput(driver, getProperty("login"), getProperty("password"));
@@ -68,7 +67,7 @@ public class SignInPageTest extends MainTestWeb {
         signInPage = new SignInPage(driver, 1);
         signInPage.signInInput(driver, getProperty("login") + "m", getProperty("password") + "1");
         signInPage.clickSignInButton(driver);
-        Thread.sleep(4000);
+        Thread.sleep(3000);
 
         //Assert.assertTrue(signInPage.emailLogin.getAttribute("ng-change").contains("hideError")&&signInPage.password.getAttribute("ng-change").contains("hideError"));
         System.out.println(signInPage.emailLogin.getCssValue("animation"));
