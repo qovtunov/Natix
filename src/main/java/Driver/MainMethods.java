@@ -11,8 +11,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Set;
-import java.util.logging.*;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.stalenessOf;
 
@@ -143,5 +149,13 @@ public class MainMethods extends UserData {
             }
             logger.info("Switched to WebView.");
         }
+    }
+
+    public static int getResponseCode(String urlString) throws MalformedURLException, IOException{
+        URL url = new URL(urlString);
+        HttpURLConnection huc = (HttpURLConnection)url.openConnection();
+        huc.setRequestMethod("GET");
+        huc.connect();
+        return huc.getResponseCode();
     }
 }

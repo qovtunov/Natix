@@ -2,7 +2,6 @@ package WebTests;
 
 import Pages.SignInPage;
 import Pages.WelcomePage;
-import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,6 +20,7 @@ public class SignInPageTest extends MainTestWeb {
             signInPage.signInInput(driver, getProperty("login"), getProperty("password"));
             signInPage.clickSignInButton(driver);
             logger.info("Login/Password passed, Sign In procedure in progress...");
+            System.out.println(getResponseCode(driver.getCurrentUrl()));
         } catch (Exception e) {
             e.printStackTrace();
             logger.severe("Sign In procedure failed on entering credentials step!");
