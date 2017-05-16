@@ -3,6 +3,49 @@
 
 <suite name="WelcomeWeb">
     <test name="Podcast Shows menu">
-
+        <classes>
+            <class name="WebTests.SignInPageTest">
+                <methods>
+                    <include name="signIn"/>
+                </methods>
+            </class>
+            <class name="WebTests.WelcomePageTest">
+                <methods>
+                    <include name="showPodcastDetail"/>
+                </methods>
+            </class>
+        </classes>
     </test>
+
+    <test name="Play episode">
+        <classes>
+            <class name="WebTests.SignInPageTest">
+                <methods>
+                    <include name="signIn"/>
+                </methods>
+            </class>
+            <class name="WebTests.WelcomePageTest">
+                <methods>
+                    <include name = "playPodcast"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="View all episodes">
+        <classes>
+            <class name="WebTests.SignInPageTest">
+                <methods>
+                    <include name="signIn"/>
+                </methods>
+            </class>
+            <class name="WebTests.WelcomePageTest">
+                <methods>
+                    <include name = "viewAll"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
 </suite>

@@ -30,7 +30,7 @@ public class SignInScreenTest extends MainTestMobile {
         }
 
         try {
-            waitForElementStaleness(signInScreenAndroid.signInButton, driver);
+            //waitForElementStaleness(signInScreenAndroid.signInButton, driver);
             Assert.assertFalse(signInScreenAndroid.emailLogin.getCssValue("animation").contains("shake")&& signInScreenAndroid.emailLogin.getCssValue("color").equals("rgba(255, 0, 0, 1)"), "Sign In failed during submit step. Reason: wrong credentials. Test failed -");
         } catch (Exception e) {}
 
