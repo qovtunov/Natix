@@ -28,7 +28,7 @@ public class MainMethods extends UserData {
         System.out.println(System.getProperty("java.util.logging.config.file")); - check local file
         LogManager.getLogManager().readConfiguration(); - read configuration from local file
     */
-    static public void setLogger() throws IOException {
+    /*static public void setLogger() throws IOException {
         // Create Logger
         //Logger logger = Logger.getLogger("");
         logger.setLevel(Level.INFO);
@@ -40,12 +40,12 @@ public class MainMethods extends UserData {
         SimpleFormatter formatterTxt = new SimpleFormatter();
         logFile.setFormatter(formatterTxt);
 
-        /*Handler ch = new ConsoleHandler();
+        *//*Handler ch = new ConsoleHandler();
         ch.setFormatter(formatterTxt);
-        logger.addHandler(ch);*/
+        logger.addHandler(ch);*//*
 
         logger.addHandler(logFile);
-    }
+    }*/
 
 
     //Main driver methods
