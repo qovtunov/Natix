@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="FavoritesWeb">
+    <test name="Add to Favorites">
+        <classes>
+            <class name="WebTests.SignInPageTest">
+                <methods>
+                    <include name="signIn"/>
+                </methods>
+            </class>
+            <class name="WebTests.WelcomePageTest">
+                <methods>
+                    <include name="showPodcastDetail"/>
+                </methods>
+            </class>
+            <class name="WebTests.ShowDetailPageTest">
+                <methods>
+                    <include name="addToPlaylist"/>
+                </methods>
+            </class>
+            <class name="WebTests.PlaylistPageTest">
+                <methods>
+                    <include name = "deleteFromPlaylist"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
