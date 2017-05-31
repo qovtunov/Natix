@@ -34,7 +34,7 @@ public class WelcomePageTest extends MainTestWeb {
         Assert.assertTrue(changePasswordPage.passwordNewConf.getCssValue("animation").contains("shake") && changePasswordPage.passwordNewConf.getCssValue("color").equals("rgba(255, 0, 0, 1)"));
     }
 
-    @Test//(dependsOnMethods = "WebTests.SignInPageTest.signIn")
+    @Test(dependsOnMethods = "WebTests.SignInPageTest.signIn")
     public void showPodcastDetail() {
         welcomePage = new WelcomePage(driver, 1);
         clickElement(welcomePage.podcastItem, driver);

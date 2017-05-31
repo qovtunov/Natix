@@ -16,6 +16,8 @@ public class _TestTest extends MainTestWeb {
         //logger.finer("finer");
         //logger.warning("warning");
 
+        //System.out.println(getResponseCode("http://ya.ru"));
+
 
     }
 
