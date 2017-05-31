@@ -15,10 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Set;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.stalenessOf;
 
@@ -57,7 +54,7 @@ public class MainMethods extends UserData {
     //Main driver methods
 
     public void waitForElement(WebElement element, WebDriver driver) {
-        wait = new WebDriverWait(driver, 30);
+        wait = new WebDriverWait(driver, 90);
         //logger.info("Waiting for visibility of element... 30 sec");
         wait.until(ExpectedConditions.visibilityOf(element));
         //logger.info("Element is found.");
