@@ -52,18 +52,15 @@ public class ShowDetailScreenTest extends MainTestMobile {
 
     @Test(dependsOnMethods = {"MobileTests.SignInScreenTest.signInAndroid", "addToFavoritesAndroid"})
     public void removeFromFavoritesAndroid() throws InterruptedException {
+        favoritesScreenAndroid = new FavoritesPage(driver, 0);
         ((AppiumDriver) driver).context("NATIVE_APP");
 
-        Thread.sleep(6000);
-        //WebElement slider = driver.findElement(By.id("favourite-episodes"));
-        WebElement slider = driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.widget.Image[1]"));
-        Point sliderLocation = getCenter(slider);
+        waitForElement(favoritesScreenAndroid.podcastItem, driver);
+        Point sliderLocation = getCenter(favoritesScreenAndroid.podcastItem);
         ((AppiumDriver) driver).swipe(sliderLocation.getX(), sliderLocation.getY(), sliderLocation.getX()+300, sliderLocation.getY(), 3000);
-        //((AppiumDriver) driver).swipe(slider.getLocation().getX(), slider.getLocation().getY(), slider.getLocation().getX()+300, slider.getLocation().getY(), 3000);
         switchToWeb(driver);
-        driver.findElement(By.cssSelector("#favourite-episodes .delete:first-child")).click();
-
-        Assert.assertTrue(isElementNotVisible(slider, driver)&&isElementNotVisible(driver.findElement(By.cssSelector("#favourite-episodes .delete:first-child")), driver));
+        clickElement(favoritesScreenAndroid.podcastItemDelete, driver);
+        Assert.assertTrue(isElementNotVisible(favoritesScreenAndroid.podcastItem, driver)&&isElementNotVisible(favoritesScreenAndroid.podcastItemDelete, driver));
     }
 
 

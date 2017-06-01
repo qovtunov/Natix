@@ -3,8 +3,7 @@ package Driver;
 import Data.UserData;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -61,7 +60,7 @@ public class MainMethods extends UserData {
     }
 
     public void waitForElementStaleness(WebElement element, WebDriver driver){
-        wait = new WebDriverWait(driver, 5);
+        wait = new WebDriverWait(driver, 2);
         wait.until(ExpectedConditions.stalenessOf(element));
     }
 
@@ -81,22 +80,23 @@ public class MainMethods extends UserData {
 
 
     public boolean isElementNotVisible(WebElement element, WebDriver driver) {
+
         try {
+            wait = new WebDriverWait(driver, 2);
             wait.until(stalenessOf(element));
-            /*if (element.isEnabled()) {
-                return true;
-            } else {
-                return false;
-            }*/
+        } catch (NoSuchElementException e) {
             return true;
-        } catch (Exception e) {
+        } catch (TimeoutException e) {
+            return true;
+        } catch (Exception e){
             return false;
         }
+        return false;
     }
 
 
     public boolean isRedirectTo(String url, WebDriver driver) {
-        wait = new WebDriverWait(driver, 30);
+        wait = new WebDriverWait(driver, 90);
         try {
             wait.until(ExpectedConditions.urlContains(url));
             return true;

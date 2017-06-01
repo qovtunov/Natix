@@ -9,10 +9,9 @@
                     <include name="signInAndroid"/>
                 </methods>
             </class>
-            <class name="MobileTests.ShowDetailScreenTest">
+            <class name="MobileTests.HeaderScreenTest">
                 <methods>
-                    <include name="addToFavoritesAndroid"/>
-                    <include name="removeFromFavoritesAndroid"/>
+                    <include name="goToShowsTabAndroid"/>
                 </methods>
             </class>
         </classes>

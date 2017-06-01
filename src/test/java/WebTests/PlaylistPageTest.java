@@ -17,7 +17,7 @@ public class PlaylistPageTest extends MainTestWeb {
         playlistPage = new PlaylistPage(driver, 1);
         clickElement(playlistPage.deleteFromPlaylist, driver);
 
-        Assert.assertFalse(isElementVisible(playlistPage.podcastItemTitle, driver));
+        Assert.assertTrue(isElementNotVisible(playlistPage.podcastItemTitle, driver));
 
         headerPage = new HeaderPage(driver, 1);
         clickElement(headerPage.showsTab, driver);

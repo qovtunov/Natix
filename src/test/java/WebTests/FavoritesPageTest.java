@@ -16,7 +16,7 @@ public class FavoritesPageTest extends MainTestWeb {
         favoritesPage = new FavoritesPage(driver, 1);
         clickElement(favoritesPage.podcastItemDelete, driver);
 
-        Assert.assertFalse(isElementVisible(favoritesPage.podcastItemTitle, driver)); //change this assert like in course staleelement
+        Assert.assertTrue(isElementNotVisible(favoritesPage.podcastItemTitle, driver));
 
         headerPage = new HeaderPage(driver, 1);
         clickElement(headerPage.showsTab, driver);
@@ -24,7 +24,6 @@ public class FavoritesPageTest extends MainTestWeb {
         clickElement(showsPage.podcastItem, driver);
 
         showDetailPage = new ShowDetailPage(driver, 1);
-
         Assert.assertFalse(showDetailPage.iconFavorites.getAttribute("class").contains("icon icon-favorites icon-favorites-on"));
 
     }
