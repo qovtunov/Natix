@@ -17,7 +17,7 @@ public class ShowDetailPageTest extends MainTestWeb {
         showDetailPage = new ShowDetailPage(driver, 1);
         clickElement(showDetailPage.iconFavorites, driver);
 
-        Assert.assertTrue(showDetailPage.iconFavorites.getAttribute("class").contains("icon icon-favorites icon-favorites-on"));
+        Assert.assertTrue(showDetailPage.iconFavorites.getAttribute("class").contains("icon-favorites-on"));
 
         String podcastItemTitle = showDetailPage.podcastItemTitle.getText().toLowerCase();
         headerPage = new HeaderPage(driver, 1);
@@ -33,7 +33,7 @@ public class ShowDetailPageTest extends MainTestWeb {
         showDetailPage = new ShowDetailPage(driver, 1);
         clickElement(showDetailPage.addToPlaylist, driver);
 
-        Assert.assertTrue(showDetailPage.addToPlaylist.getAttribute("class").contains("icon icon-playlist icon-playlist-on"));
+        Assert.assertTrue(showDetailPage.addToPlaylist.getAttribute("class").contains("icon-playlist-on"));
         String podcastItemTitle = showDetailPage.podcastItemTitle.getText().toLowerCase();
 
         headerPage = new HeaderPage(driver, 1);

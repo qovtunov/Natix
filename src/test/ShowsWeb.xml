@@ -4,15 +4,14 @@
 <suite name="FavoritesMobile">
     <test name="Add to Favorites ">
         <classes>
-            <class name="MobileTests.SignInScreenTest">
+            <class name="WebTests.SignInPageTest">
                 <methods>
-                    <include name="signInAndroid"/>
+                    <include name="signIn"/>
                 </methods>
             </class>
-            <class name="MobileTests.ShowDetailScreenTest">
+            <class name="WebTests.HeaderWebTest">
                 <methods>
-                    <include name="addToFavoritesAndroid"/>
-                    <include name="removeFromFavoritesAndroid"/>
+                    <include name="goToShowsTab"/>
                 </methods>
             </class>
         </classes>
