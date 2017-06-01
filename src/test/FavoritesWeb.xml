@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="FavoritesWeb">
-    <test name="Add to Favorites">
+    <test name="Add to Favorites/Remove from Favorites">
         <classes>
             <class name="WebTests.SignInPageTest">
                 <methods>
