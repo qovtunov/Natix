@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="FavoritesWeb">
-    <test name="Add to Favorites">
+<suite name="PlylistWeb">
+    <test name="Add to Playlist/Remove from Playlist">
         <classes>
             <class name="WebTests.SignInPageTest">
                 <methods>
