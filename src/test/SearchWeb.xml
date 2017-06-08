@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="FavoritesMobile">
-    <test name="Add to Favorites ">
+<suite name="SearchWeb">
+    <test name="SearchWeb">
         <classes>
-            <class name="MobileTests.SignInScreenTest">
+            <class name="WebTests.SignInPageTest">
                 <methods>
-                    <include name="signInAndroid"/>
+                    <include name="signIn"/>
                 </methods>
             </class>
-            <class name="MobileTests.EpisodesScreenTest">
+            <class name="WebTests.SearchPageTest">
                 <methods>
-                    <include name="searchResultAndroid"/>
+                    <include name="redirectToSearchResult"/>
+                    <include name="filterSearchResult"/>
                 </methods>
             </class>
         </classes>
     </test>
 </suite>
-
