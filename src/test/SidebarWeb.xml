@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="SidebarWeb">
+    <test name="ToggleSideBar">
+    </test>
+
+    <test name="OpenShow">
+        <classes>
+            <class name="WebTests.SignInPageTest">
+                <methods>
+                    <include name="signIn"/>
+                </methods>
+            </class>
+
+            <class name="WebTests.SidebarTest">
+                <methods>
+                    <include name="toggleSidebar"/>
+                    <include name="sidebarRedirectToShow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Playlist">
+        <classes>
+            <class name="WebTests.SignInPageTest">
+                <methods>
+                    <include name="signIn"/>
+                </methods>
+            </class>
+
+            <class name="WebTests.SidebarTest">
+                <methods>
+                    <include name="toggleSidebar"/>
+                    <include name="sidebarRedirectToPlaylist"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
