@@ -4,14 +4,15 @@
 <suite name="SearchWeb">
     <test name="SearchWeb">
         <classes>
-            <class name="MobileTests.SignInScreenTest">
+            <class name="WebTests.SignInPageTest">
                 <methods>
-                    <include name="signInAndroid"/>
+                    <include name="signIn"/>
                 </methods>
             </class>
-            <class name="MobileTests.EpisodesScreenTest">
+            <class name="WebTests.SearchPageTest">
                 <methods>
-                    <include name="searchResultAndroid"/>
+                    <include name="redirectToSearchResult"/>
+                    <include name="filterSearchResult"/>
                 </methods>
             </class>
         </classes>
