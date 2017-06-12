@@ -12,7 +12,9 @@
             <class name="WebTests.SearchPageTest">
                 <methods>
                     <include name="redirectToSearchResult"/>
+
                     <include name="filterSearchResult"/>
+
                 </methods>
             </class>
         </classes>
